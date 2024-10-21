@@ -1,0 +1,23 @@
+<div class="items">
+  <div class="banner">
+    <img src="/thumbnails/headshot_nome.jpg" alt="Ben Purinton's headshot" class="banner-image">
+  </div>
+  
+  <div class="name">
+    Ben(jamin) Purinton
+  </div>
+  
+  <div class="social-icons">
+    <a href="https://bpurinton.github.io/" target="_blank">
+      »Visit Ben's Personal Website«
+    </a>
+  
+  </div>
+  <% @links.each do |link| %>
+    <div class="link">
+      <img class="link-thumbnail" src="<%= link.image %>" alt="<%= link.image_alt_text %>">
+    
+      <a target="_blank" href="<%= link.url %>"><%= link.url_text %></a>
+    </div>
+  <% end %>
+</div>
