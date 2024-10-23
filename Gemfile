@@ -86,6 +86,7 @@ gem "table_print"
 gem "simple_form"
 gem "carrierwave"
 gem "rails_db"
+gem "activeadmin"
 
 group :development do
   gem "annotate"
