@@ -8,6 +8,3 @@ bundle install
 bundle exec rake assets:precompile
 bundle exec rake assets:clean
 bundle exec rake db:migrate
-
-# Everytime we deploy, we also want to run our new sample_data task to populate the links
-rake sample_data
