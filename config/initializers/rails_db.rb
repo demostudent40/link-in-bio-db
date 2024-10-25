@@ -1,7 +1,9 @@
 if Object.const_defined?('RailsDb')
   RailsDb.setup do |config|
     # enabled or not
-    # config.enabled = Rails.env.development?
+    if ENV.fetch("RAILS_DB_USERNAME", nil).blank? || ENV.fetch("RAILS_DB_PASSWORD", nil).blank?
+      config.enabled = false
+    end
 
     # automatic engine routes mounting
     # config.automatic_routes_mount = true
