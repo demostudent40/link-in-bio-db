@@ -2,6 +2,9 @@ if Object.const_defined?('RailsDb')
   RailsDb.setup do |config|
     # enabled or not
     if ENV.fetch("RAILS_DB_USERNAME", nil).blank? || ENV.fetch("RAILS_DB_PASSWORD", nil).blank?
+      puts "----"
+      puts ENV.fetch("RAILS_ENV")
+      puts "----"
       config.enabled = false
     end
 
