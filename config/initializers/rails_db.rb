@@ -2,7 +2,6 @@ if Object.const_defined?('RailsDb')
   RailsDb.setup do |config|
     # only enable the gem if environment variables are set for username and password
     if ENV.fetch("RAILS_DB_USERNAME", nil).present? && ENV.fetch("RAILS_DB_PASSWORD", nil).present?
-      puts("\n****\nRAILSDB ENABLED\n*****\n")
       # enable
       config.enabled = true
 
@@ -16,12 +15,11 @@ if Object.const_defined?('RailsDb')
       config.http_basic_authentication_enabled = true
 
       # Enable http basic authentication
-      config.http_basic_authentication_user_name = ENV.fetch("RAILS_DB_USERNAME", nil)
+      config.http_basic_authentication_user_name = ENV.fetch("RAILS_DB_USERNAME")
 
       # Enable http basic authentication
-      config.http_basic_authentication_password = ENV.fetch("RAILS_DB_PASSWORD", nil)
+      config.http_basic_authentication_password = ENV.fetch("RAILS_DB_PASSWORD")
     else
-      puts("\n****\nRAILSDB DISABLED\n*****\n")
       config.enabled = false
       config.automatic_routes_mount = false
     end
