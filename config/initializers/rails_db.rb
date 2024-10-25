@@ -1,12 +1,7 @@
 if Object.const_defined?('RailsDb')
   RailsDb.setup do |config|
     # enabled or not
-    if ENV.fetch("RAILS_DB_USERNAME", nil).blank? || ENV.fetch("RAILS_DB_PASSWORD", nil).blank?
-      puts "----"
-      puts ENV.fetch("RAILS_ENV")
-      puts "----"
-      config.enabled = false
-    end
+    # config.enabled = Rails.env.development?
 
     # automatic engine routes mounting
     # config.automatic_routes_mount = true
@@ -21,10 +16,10 @@ if Object.const_defined?('RailsDb')
     config.http_basic_authentication_enabled = true
 
     # Enable http basic authentication
-    config.http_basic_authentication_user_name = ENV.fetch("RAILS_DB_USERNAME", nil)
+    config.http_basic_authentication_user_name = ENV.fetch("RAILS_DB_USERNAME", "username")
 
     # Enable http basic authentication
-    config.http_basic_authentication_password = ENV.fetch("RAILS_DB_PASSWORD", nil)
+    config.http_basic_authentication_password = ENV.fetch("RAILS_DB_PASSWORD", "password")
 
     # Enable http basic authentication
     # config.verify_access_proc = proc { |controller| true }
